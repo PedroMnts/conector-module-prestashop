@@ -1,0 +1,36 @@
+{% extends '@!PrestaShop/Admin/layout.html.twig' %}
+{# Since PS 8.0.0 you can use @PrestaShopCore instead of @!Prestashop
+(https://devdocs.prestashop-project.org/8/modules/concepts/templating/admin-views/#override-templates) #}
+{% block content %}
+    <link rel="stylesheet" href="/modules/pedidosinternet/views/css/element.css" />
+    <script src="/modules/pedidosinternet/views/js/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/modules/pedidosinternet/views/js/vue.global.js"></script>
+    <script src="/modules/pedidosinternet/views/js/index.full.js"></script>
+    <script src="/modules/pedidosinternet/views/js/element_es.js"></script>
+    <script>
+        window.pedidosInternet = {
+            synchronizeClients: '{{ path('state_clients_check') }}',
+            synchronizeFamilies: '{{ path('state_families_check') }}',
+            synchronizeProducts: '{{ path('state_products_check') }}',
+            synchronizeRates: '{{ path('state_rates_check') }}',
+            synchronizeWebTemplates: '{{ path('state_webtemplates_check') }}',
+            synchronizeProductTemplateValues: '{{ path('state_producttemplatevalues_check') }}',
+            synchronizeAsignFamiliesWithTemplates: '{{ path('state_asignfamilieswithtemplates_check') }}',
+            synchronizeBrands: '{{ path('state_brands_check') }}',
+            DeleteLog: '{{ path('state_deletelog_check') }}',
+            configuration: '{{ path("configuration_get") }}',
+            logs: '{{ path("log_information") }}',
+            orderDataToDistrib: '{{ path("order_data_to_distrib") }}',
+            clientDataToDistrib: '{{ path("client_data_to_distrib") }}',
+            updateStock: '{{ path("update_stock") }}',
+        }
+    </script>
+    <div class="row justify-content-center" id="adminApp">
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module" src="{{ asset('../modules/pedidosinternet/views/js/pedidosInternet.js') }}"></script>
+{% endblock %}

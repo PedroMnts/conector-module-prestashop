@@ -1,0 +1,16 @@
+{
+    "name": "dobuss/pedidosinternet",
+    "description": "Módulo para interactuar con ERP",
+    "autoload": {
+        "psr-4": {
+            "PedidosInternet\\":  "src/"
+        }
+    },
+    "config": {
+        "prepend-autoloader": false
+    },
+    "type": "prestashop-module",
+    "require-dev": {
+        "phpstan/phpstan": "^1.9"
+    }
+}
