@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    public: true
+
+  pedidosinternet.configuration_service:
+    class: PedidosInternet\Configuration
+    arguments:
+      - "@translator"

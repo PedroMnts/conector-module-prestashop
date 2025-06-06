@@ -1,0 +1,109 @@
+pedidosInternet:
+  path: pedidos-internet
+  methods: [GET]
+  defaults:
+    _controller: 'PedidosInternet\Controller\PedidosInternetController::pedidosInternet'
+    _legacy_controller: 'PedidosInternetController'
+    _legacy_link: 'PedidosInternetController'
+
+state_clients_check:
+  path: /pedidosinternet/state/clients/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationClients
+
+state_categories_check:
+  path: /pedidosinternet/state/categories/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationCategories
+
+state_products_check:
+  path: /pedidosinternet/state/products/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationProducts
+
+state_rates_check:
+  path: /pedidosinternet/state/rates/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationRates
+
+state_webtemplates_check:
+  path: /pedidosinternet/state/webtemplates/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationWebTemplates
+
+state_producttemplatevalues_check:
+  path: /pedidosinternet/state/producttemplatevalues/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationProductTemplateValues
+
+state_asigncategorieswithtemplates_check:
+  path: /pedidosinternet/state/asigncategorieswithtemplates/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationAsignCategoriesWithTemplates
+
+state_brands_check:
+  path: /pedidosinternet/state/brands/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationBrands
+
+state_deletelog_check:
+  path: /pedidosinternet/state/deletelog/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::DeleteLog
+
+invoices_for_customer:
+  path: /pedidosinternet/customer/invoices
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController:customerInvoices
+
+picking_changes_check:
+  path: /pedidosinternet/state/picking/check
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\StateController::checkSynchronizationPickingChanges
+
+configuration_get:
+  path: /pedidosinternet/configuration
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\ConfigurationController::retrieve
+
+configuration_update:
+  path: /pedidosinternet/configuration
+  methods: [PATCH]
+  defaults:
+    _controller: PedidosInternet\Controller\ConfigurationController::save
+    _legacy_controller: PedidosInternetConfigurationUpdate
+
+log_information:
+  path: /pedidosinternet/log
+  methods: [GET]
+  defaults:
+    _controller: PedidosInternet\Controller\LogController::list
+
+order_data_to_distrib:
+  path: /pedidosinternet/order-to-distrib
+  methods: [PATCH]
+  defaults:
+    _controller: PedidosInternet\Controller\SendToDistribController::sendOrder
+
+client_data_to_distrib:
+  path: /pedidosinternet/client-to-distrib
+  methods: [PATCH]
+  defaults:
+    _controller: PedidosInternet\Controller\SendToDistribController::sendClient
+
+update_stock:
+  path: /pedidosinternet/update-stock
+  defaults:
+    _controller: PedidosInternet\Controller\Stock::updateAllProductsStock
